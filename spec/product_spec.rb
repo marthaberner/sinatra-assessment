@@ -8,8 +8,13 @@ feature "Task Master" do
   scenario "Manage Tasks" do
     visit '/'
 
-    within ("#tasks") do
+    within ("#products") do
       expect(page).to have_content "Welcome"
+      click_link "Add a Product"
+    end
+    within ("#new_products") do
+      fill_in "product", with: "Awesome App"
+      click_on "Create Product"
     end
   end
 end
