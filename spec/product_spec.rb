@@ -16,5 +16,8 @@ feature "Task Master" do
       fill_in "product", with: "Awesome App"
       click_on "Create Product"
     end
+    within ("#products") do
+      expect(page).to have_content "Awesome App"
+    end
   end
 end
